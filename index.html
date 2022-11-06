@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <button>New Test Suite</button>
+    <table>
+        <tr>
+            <td>Test Suite ID</td>
+            <td>Testcase ID</td>
+            <td>Test Objective</td>
+            <td>Test Step 1</td>
+            <td>Test Step 2</td>
+            <td>Status</td>
+            <td>Bug Description</td>
+        </tr>
+        <tr>
+            <td id = "suiteid">
+                <select>
+                    <option>1</option>
+                </select>
+            </td>
+            <td id="id"></td>
+            <td><input type="text" id="objective" placeholder = "Enter Test Objective here"/></td>
+            <td><input type="text" class="steps" /></td>
+            <td><input type="text" class="steps" /></td>
+            <td>
+                <select>
+                    <option>Pending</option>
+                    <option>Pass</option>
+                    <option>Fail</option>
+                    <option>Fixed</option>
+                </select>
+            </td>
+            <td><input type = "text" id = "bug"/></td>
+        </tr>
+    </table>
+    <button>Submit Testcase</button>
+</body>
+
+</html>

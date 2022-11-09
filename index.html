@@ -47,26 +47,26 @@
         </tr>
         <tr>
             <td id = "suiteid">
-                <select>
-                    <option>1</option>
+                <select id = "suite-id">
+                    <option value = "1">1</option>
                 </select>
             </td>
             <td id="id"></td>
             <td><input type="text" id="objective" placeholder = "Enter Test Objective here"/></td>
-            <td><input type="text" class="steps" placeholder = "Enter Test Step"/></td>
-            <td><input type="text" class="steps" placeholder = "Enter Test Step"/></td>
+            <td><input type="text" class = "steps" id="step-1" placeholder = "Enter Test Step"/></td>
+            <td><input type="text" class = "steps" id="step-2" placeholder = "Enter Test Step"/></td>
             <td>
-                <select>
-                    <option>Pending</option>
-                    <option>Pass</option>
-                    <option>Fail</option>
-                    <option>Fixed</option>
+                <select id = "testcase-status">
+                    <option value = "pending">Pending</option>
+                    <option value = "pass">Pass</option>
+                    <option value = "fail">Fail</option>
+                    <option value = "fixed">Fixed</option>
                 </select>
             </td>
             <td><input type = "text" id = "bug" placeholder="Enter Bug Description"/></td>
         </tr>
     </table>
-    <button>Submit Testcase</button>
+    <button id = "submit-testcase" onClick = "submitTestCases()">Submit Testcase</button>
 </body>
 
 </html>

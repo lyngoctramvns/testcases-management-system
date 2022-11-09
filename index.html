@@ -14,7 +14,7 @@
     <table>
         <thead>
             <tr>
-                <th colspan = "5">Dashboard</th>
+                <th colspan="5">Dashboard</th>
             </tr>
         </thead>
         <tbody>
@@ -26,47 +26,60 @@
                 <td>Number of Bugs Remain</td>
             </tr>
             <tr>
-                <td id = "pass-percentage"></td>
-                <td id = "fail-percentage"></td>
-                <td id = "test-coverage"></td>
-                <td id = "num-bug-fixed"></td>
-                <td id = "num-bug-failed"></td>
+                <td id="pass-percentage"></td>
+                <td id="fail-percentage"></td>
+                <td id="test-coverage"></td>
+                <td id="num-bug-fixed"></td>
+                <td id="num-bug-failed"></td>
             </tr>
         </tbody>
     </table>
     <button>New Test Suite</button>
     <table>
         <tr>
-            <td>Test Suite ID</td>
-            <td>Testcase ID</td>
-            <td>Test Objective</td>
-            <td>Test Step 1</td>
-            <td>Test Step 2</td>
-            <td>Status</td>
-            <td>Bug Description</td>
+            <th>Test Suite ID</th>
+            <th>Test Objective</th>
+            <th>Test Step 1</th>
+            <th>Test Step 2</th>
+            <th>Status</th>
+            <th>Bug Description</th>
         </tr>
         <tr>
-            <td id = "suiteid">
-                <select id = "suite-id">
-                    <option value = "1">1</option>
+            <td id="suiteid">
+                <select id="suite-id">
+                    <option value="1">1</option>
                 </select>
             </td>
-            <td id="id"></td>
-            <td><input type="text" id="objective" placeholder = "Enter Test Objective here"/></td>
-            <td><input type="text" class = "steps" id="step-1" placeholder = "Enter Test Step"/></td>
-            <td><input type="text" class = "steps" id="step-2" placeholder = "Enter Test Step"/></td>
+            <td><input type="text" id="objective" placeholder="Enter Test Objective here" /></td>
+            <td><input type="text" class="steps" id="step-1" placeholder="Enter Test Step" /></td>
+            <td><input type="text" class="steps" id="step-2" placeholder="Enter Test Step" /></td>
             <td>
-                <select id = "testcase-status">
-                    <option value = "pending">Pending</option>
-                    <option value = "pass">Pass</option>
-                    <option value = "fail">Fail</option>
-                    <option value = "fixed">Fixed</option>
+                <select id="testcase-status">
+                    <option value="pending">Pending</option>
+                    <option value="pass">Pass</option>
+                    <option value="fail">Fail</option>
+                    <option value="fixed">Fixed</option>
                 </select>
             </td>
-            <td><input type = "text" id = "bug" placeholder="Enter Bug Description"/></td>
+            <td><input type="text" id="bug" placeholder="Enter Bug Description" /></td>
         </tr>
     </table>
-    <button id = "submit-testcase" onClick = "submitTestCases()">Submit Testcase</button>
+    <button id="submit-testcase" onClick="submitTestCases()">Submit Testcase</button>
+
+
+    <table class="testcases-result">
+        <thead>
+            <tr>
+                <th>Test Suite ID</th>
+                <th>Test Case ID</th>
+                <th>Test Objective</th>
+                <th>Test Step 1</th>
+                <th>Test Step 2</th>
+                <th>Status</th>
+                <th>Bug Description</th>
+            </tr>
+        </thead>
+    </table>
 </body>
 
 </html>

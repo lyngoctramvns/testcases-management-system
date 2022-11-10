@@ -7,8 +7,8 @@ function submitTestCases() {
     let statusText = status.options[status.selectedIndex].text;
     let bug = document.getElementById('bug').value;
 
-    if(localStorage.getItem('id')){
-        localStorage.setItem('id', +( localStorage.getItem('id')) + 1)
+    if (localStorage.getItem('id')) {
+        localStorage.setItem('id', +(localStorage.getItem('id')) + 1)
     } else {
         localStorage.setItem('id', "0");
     }
@@ -18,17 +18,36 @@ function submitTestCases() {
         Objective: objective,
         Step1: stepOne,
         Step2: stepTwo,
-        status: statusText,
+        Status: statusText,
         BugDetails: bug
     };
 
     let array = JSON.parse(localStorage.getItem('TestCasesData'));
 
-    if(array){
+    if (array) {
         localStorage.setItem('TestCasesData', JSON.stringify([...array, object]));
     } else {
 
         localStorage.setItem('TestCasesData', JSON.stringify([object]));
     };
 
+    let newarray = JSON.parse(localStorage.getItem('TestCasesData'));
+
+    function buildTable(data) {
+        var table = document.getElementById('table-data')
+        var suiteId = document.getElementById('suite-id').value;
+
+            var row = `<tr>
+                <td>${suiteId}</td>
+                <td>${data[data.length-1].id}</td>
+                <td>${data[data.length-1].Objective}</td>
+                <td>${data[data.length-1].Step1}</td>
+                <td>${data[data.length-1].Step2}</td>
+                <td>${data[data.length-1].Status}</td>
+                <td>${data[data.length-1].BugDetails}</td>
+                        </tr>`
+            table.innerHTML += row;
+    };
+
+    buildTable(newarray);
 };

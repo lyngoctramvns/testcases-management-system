@@ -1,0 +1,3 @@
+https://stackoverflow.com/questions/50556853/count-how-many-objects-in-an-array-has-a-certain-value-javascript
+
+https://stackoverflow.com/questions/3807570/get-the-id-of-current-table-row-with-jquery

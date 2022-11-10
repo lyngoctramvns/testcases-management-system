@@ -1,4 +1,5 @@
 function submitTestCases() {
+    var suiteId = document.getElementById('suite-id').value;
     let objective = document.getElementById('objective').value;
     let stepOne = document.getElementById('step-1').value;
     let stepTwo = document.getElementById('step-2').value;
@@ -14,6 +15,7 @@ function submitTestCases() {
     }
 
     let object = {
+        SuiteID: suiteId,
         id: localStorage.getItem('id'),
         Objective: objective,
         Step1: stepOne,
@@ -37,11 +39,18 @@ function submitTestCases() {
 
         var suiteId = document.getElementById('suite-id').value;
 
+        
+
         if (suiteId == 1) {
+            //Lấy element tbody = id
             var table = document.getElementById('table-data-1');
+            //kiểm tra số hàng đã có trong tbody
+            var rowCountOne = table.rows.length;
+            //Điền các thông tin vào bảng. Thông tin lấy từ array get từ localStorage
+            //id điền từ 1, vậy nên row count các hàng đã có thì sẽ là rowCountOne + 1
             var row = `<tr>
                 <td>${suiteId}</td>
-                <td>${data[data.length - 1].id}</td>
+                <td>${rowCountOne + 1}</td>
                 <td>${data[data.length - 1].Objective}</td>
                 <td>${data[data.length - 1].Step1}</td>
                 <td>${data[data.length - 1].Step2}</td>
@@ -50,10 +59,13 @@ function submitTestCases() {
                         </tr>`
             table.innerHTML += row;
         } else if (suiteId == 2) {
+            //lấy element tbody = id
             var table = document.getElementById('table-data-2');
-            var row = `<tr>
+            //kiểm tra số hàng đã có trong tbody
+            var rowCountTwo = table.rows.length;
+            var row = `<tr class = "row-id-2">
                 <td>${suiteId}</td>
-                <td>${data[data.length - 1].id}</td>
+                <td>${rowCountTwo + 1}</td>
                 <td>${data[data.length - 1].Objective}</td>
                 <td>${data[data.length - 1].Step1}</td>
                 <td>${data[data.length - 1].Step2}</td>
@@ -63,9 +75,10 @@ function submitTestCases() {
             table.innerHTML += row;
         } else {
             var table = document.getElementById('table-data-3');
-            var row = `<tr>
+            var rowCountThree = table.rows.length;
+            var row = `<tr class = "row-id-3">
                 <td>${suiteId}</td>
-                <td>${data[data.length - 1].id}</td>
+                <td>${rowCountThree + 1}</td>
                 <td>${data[data.length - 1].Objective}</td>
                 <td>${data[data.length - 1].Step1}</td>
                 <td>${data[data.length - 1].Step2}</td>
@@ -77,4 +90,8 @@ function submitTestCases() {
     };
 
     buildTable(newarray);
+};
+
+window.onload = (event) => { 
+    let currentData = JSON.parse(localStorage.getItem('TestCasesData'));
 };

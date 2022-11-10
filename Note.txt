@@ -1,3 +1,9 @@
 https://stackoverflow.com/questions/50556853/count-how-many-objects-in-an-array-has-a-certain-value-javascript
 
 https://stackoverflow.com/questions/3807570/get-the-id-of-current-table-row-with-jquery
+
+Trong TH trong localStorage là mảng bao gồm các object thì cần JSON.stringify & JSON.parse
+
+Trong TH trong localStorage là mảng với các số hoặc chuỗi thì khi getItem cần split(',') (không cần dùng stringify & parse khi set/getItem)
+
+Trong TH trong localStorage là một số hoặc 1 chuỗi thì khi setItem/getItem không cần stringify hay parse.

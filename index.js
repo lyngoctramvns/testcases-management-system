@@ -2,6 +2,9 @@ function submitTestCases() {
     let objective = document.getElementById('objective').value;
     let stepOne = document.getElementById('step-1').value;
     let stepTwo = document.getElementById('step-2').value;
+    let status = document.getElementById('testcase-status');
+    let statusValue = status.options[status.selectedIndex].value;
+    let statusText = status.options[status.selectedIndex].text;
     let bug = document.getElementById('bug').value;
 
     if(localStorage.getItem('id')){
@@ -15,6 +18,7 @@ function submitTestCases() {
         Objective: objective,
         Step1: stepOne,
         Step2: stepTwo,
+        status: statusText,
         BugDetails: bug
     };
 

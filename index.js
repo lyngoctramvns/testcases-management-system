@@ -34,10 +34,12 @@ function submitTestCases() {
     let newarray = JSON.parse(localStorage.getItem('TestCasesData'));
 
     function buildTable(data) {
-        var table = document.getElementById('table-data')
+
         var suiteId = document.getElementById('suite-id').value;
 
-        var row = `<tr>
+        if (suiteId == 1) {
+            var table = document.getElementById('table-data-1');
+            var row = `<tr>
                 <td>${suiteId}</td>
                 <td>${data[data.length - 1].id}</td>
                 <td>${data[data.length - 1].Objective}</td>
@@ -46,7 +48,32 @@ function submitTestCases() {
                 <td>${data[data.length - 1].Status}</td>
                 <td>${data[data.length - 1].BugDetails}</td>
                         </tr>`
-        table.innerHTML += row;
+            table.innerHTML += row;
+        } else if (suiteId == 2) {
+            var table = document.getElementById('table-data-2');
+            var row = `<tr>
+                <td>${suiteId}</td>
+                <td>${data[data.length - 1].id}</td>
+                <td>${data[data.length - 1].Objective}</td>
+                <td>${data[data.length - 1].Step1}</td>
+                <td>${data[data.length - 1].Step2}</td>
+                <td>${data[data.length - 1].Status}</td>
+                <td>${data[data.length - 1].BugDetails}</td>
+                        </tr>`
+            table.innerHTML += row;
+        } else {
+            var table = document.getElementById('table-data-3');
+            var row = `<tr>
+                <td>${suiteId}</td>
+                <td>${data[data.length - 1].id}</td>
+                <td>${data[data.length - 1].Objective}</td>
+                <td>${data[data.length - 1].Step1}</td>
+                <td>${data[data.length - 1].Step2}</td>
+                <td>${data[data.length - 1].Status}</td>
+                <td>${data[data.length - 1].BugDetails}</td>
+                        </tr>`
+            table.innerHTML += row;
+        }
     };
 
     buildTable(newarray);

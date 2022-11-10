@@ -34,7 +34,7 @@
             </tr>
         </tbody>
     </table>
-    <button>New Test Suite</button>
+    <button>Update Dashboard</button>
     <table>
         <tr>
             <th>Test Suite ID</th>
@@ -48,6 +48,8 @@
             <td id="suiteid">
                 <select id="suite-id">
                     <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                 </select>
             </td>
             <td><input type="text" id="objective" placeholder="Enter Test Objective here" /></td>
@@ -67,7 +69,7 @@
     <button id="submit-testcase" onClick="submitTestCases()">Submit Testcase</button>
 
 
-    <table class="testcases-result">
+    <table class="table-suite-1">
         <thead>
             <tr>
                 <th>Test Suite ID</th>
@@ -79,7 +81,41 @@
                 <th>Bug Description</th>
             </tr>
         </thead>
-        <tbody id = "table-data">
+        <tbody id = "table-data-1">
+
+        </tbody>
+    </table>
+
+    <table class="table-suite-2">
+        <thead>
+            <tr>
+                <th>Test Suite ID</th>
+                <th>Test Case ID</th>
+                <th>Test Objective</th>
+                <th>Test Step 1</th>
+                <th>Test Step 2</th>
+                <th>Status</th>
+                <th>Bug Description</th>
+            </tr>
+        </thead>
+        <tbody id = "table-data-2">
+
+        </tbody>
+    </table>
+
+    <table class="table-suite-3">
+        <thead>
+            <tr>
+                <th>Test Suite ID</th>
+                <th>Test Case ID</th>
+                <th>Test Objective</th>
+                <th>Test Step 1</th>
+                <th>Test Step 2</th>
+                <th>Status</th>
+                <th>Bug Description</th>
+            </tr>
+        </thead>
+        <tbody id = "table-data-3">
 
         </tbody>
     </table>

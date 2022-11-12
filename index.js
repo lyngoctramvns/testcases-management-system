@@ -4,7 +4,6 @@ function submitTestCases() {
     let stepOne = document.getElementById('step-1').value;
     let stepTwo = document.getElementById('step-2').value;
     let status = document.getElementById('testcase-status');
-    let statusValue = status.options[status.selectedIndex].value;
     let statusText = status.options[status.selectedIndex].text;
     let bug = document.getElementById('bug').value;
 
@@ -15,7 +14,7 @@ function submitTestCases() {
     }
 
     let object = {
-        SuiteID: suiteId,
+        suiteId: suiteId,
         id: localStorage.getItem('id'),
         Objective: objective,
         Step1: stepOne,
@@ -33,65 +32,44 @@ function submitTestCases() {
         localStorage.setItem('TestCasesData', JSON.stringify([object]));
     };
 
-    let newarray = JSON.parse(localStorage.getItem('TestCasesData'));
+    buildTable(object);
+    //gọi hàm build table với biến object đã được thêm bên trên để thêm vào luôn trong bảng
+};
+
+
+let newarray = JSON.parse(localStorage.getItem('TestCasesData'));
+//tạo hàm getObject để map lại từ phần tử đầu tới phần tử đã post(add vào mảng)
+    function getObject(dataArray){
+
+        //Dùng vòng for để lặp lại hàm build table cho từng i trong mảng
+        for (i = 0; i < dataArray.length; i++){
+            buildTable(dataArray[i]);
+        }
+    }
+
+    getObject(newarray);
 
     function buildTable(data) {
-
-        var suiteId = document.getElementById('suite-id').value;
-
-        
-
-        if (suiteId == 1) {
-            //Lấy element tbody = id
-            var table = document.getElementById('table-data-1');
-            //kiểm tra số hàng đã có trong tbody
-            var rowCountOne = table.rows.length;
-            //Điền các thông tin vào bảng. Thông tin lấy từ array get từ localStorage
-            //id điền từ 1, vậy nên row count các hàng đã có thì sẽ là rowCountOne + 1
-            var row = `<tr>
-                <td>${suiteId}</td>
-                <td>${rowCountOne + 1}</td>
-                <td>${data[data.length - 1].Objective}</td>
-                <td>${data[data.length - 1].Step1}</td>
-                <td>${data[data.length - 1].Step2}</td>
-                <td>${data[data.length - 1].Status}</td>
-                <td>${data[data.length - 1].BugDetails}</td>
-                        </tr>`
-            table.innerHTML += row;
-        } else if (suiteId == 2) {
-            //lấy element tbody = id
-            var table = document.getElementById('table-data-2');
-            //kiểm tra số hàng đã có trong tbody
-            var rowCountTwo = table.rows.length;
-            var row = `<tr class = "row-id-2">
-                <td>${suiteId}</td>
-                <td>${rowCountTwo + 1}</td>
-                <td>${data[data.length - 1].Objective}</td>
-                <td>${data[data.length - 1].Step1}</td>
-                <td>${data[data.length - 1].Step2}</td>
-                <td>${data[data.length - 1].Status}</td>
-                <td>${data[data.length - 1].BugDetails}</td>
-                        </tr>`
-            table.innerHTML += row;
-        } else {
-            var table = document.getElementById('table-data-3');
-            var rowCountThree = table.rows.length;
-            var row = `<tr class = "row-id-3">
-                <td>${suiteId}</td>
-                <td>${rowCountThree + 1}</td>
-                <td>${data[data.length - 1].Objective}</td>
-                <td>${data[data.length - 1].Step1}</td>
-                <td>${data[data.length - 1].Step2}</td>
-                <td>${data[data.length - 1].Status}</td>
-                <td>${data[data.length - 1].BugDetails}</td>
-                        </tr>`
-            table.innerHTML += row;
-        }
+        //nếu trong data object có suiteId = 1,2,3 thì chạy hàm tableId với tham số tương t ứng với từng table
+        tableId(data);
     };
 
-    buildTable(newarray);
-};
+    function tableId(data){
+        //Lấy element tbody + tham số data.suiteId
+        var table = document.getElementById(`table-data-${data.suiteId}`);
+        //kiểm tra số hàng đã có trong tbody
+        var rowCountOne = table.rows.length;
+        //Điền các thông tin vào bảng. Thông tin lấy từ array get từ localStorage
+        //id điền từ 1, vậy nên row count các hàng đã có thì sẽ là rowCountOne + 1
+        var row = `<tr>
+            <td>${data.suiteId}</td>
+            <td>${rowCountOne + 1}</td>
+            <td>${data.Objective}</td>
+            <td>${data.Step1}</td>
+            <td>${data.Step2}</td>
+            <td>${data.Status}</td>
+            <td>${data.BugDetails}</td>
+                    </tr>`
+        table.innerHTML += row;
 
-window.onload = (event) => { 
-    let currentData = JSON.parse(localStorage.getItem('TestCasesData'));
-};
+    }

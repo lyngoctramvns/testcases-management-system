@@ -25,11 +25,11 @@ function dashBoard (){
 
 function calculationDashboard(data,filterPass,filterFail,filterPending,filterFixed){
 
-    let passPercentage = filterPass.length/(data.length/100) + '%';
+    let passPercentage = (filterPass.length/(data.length/100)).toFixed(2) + '%';
 
-    let failPercentage = (filterFail.length + filterFixed.length)/(data.length/100) + '%';
+    let failPercentage = ((filterFail.length + filterFixed.length)/(data.length/100)).toFixed(2) + '%';
 
-    let testCoverage = ((data.length - filterPending.length) / data.length) * 100 + '%';
+    let testCoverage = (((data.length - filterPending.length) / data.length) * 100).toFixed(2) + '%';
 
     let bugFixed = filterFixed.length + '/' + (filterFail.length + filterFixed.length) + ' total bugs';
 

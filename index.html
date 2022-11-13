@@ -5,118 +5,122 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="table-input.css">
+    <link rel="stylesheet" href="button.css">
     <link rel="stylesheet" href="index.css">
     <title>Document</title>
 </head>
 
 <body>
-    <table>
-        <thead>
-            <tr>
-                <th colspan="5">Dashboard</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Percentage Pass</td>
-                <td>Percentage Fail</td>
-                <td>Test Coverage</td>
-                <td>Number of Bugs Fixed</td>
-                <td>Number of Bugs Remain</td>
-            </tr>
-            <tr>
-                <td id="pass-percentage"></td>
-                <td id="fail-percentage"></td>
-                <td id="test-coverage"></td>
-                <td id="num-bug-fixed"></td>
-                <td id="num-bug-failed"></td>
-            </tr>
-        </tbody>
-    </table>
-    <button onClick = "dashBoard()">Update Dashboard</button>
-    <table>
-        <tr>
-            <th>Test Suite ID</th>
-            <th>Test Objective</th>
-            <th>Test Step 1</th>
-            <th>Test Step 2</th>
-            <th>Status</th>
-            <th>Bug Description</th>
-        </tr>
-        <tr>
-            <td id="suiteid">
-                <select id="suite-id">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-            </td>
-            <td><input type="text" id="objective" placeholder="Enter Test Objective here" /></td>
-            <td><input type="text" class="steps" id="step-1" placeholder="Enter Test Step" /></td>
-            <td><input type="text" class="steps" id="step-2" placeholder="Enter Test Step" /></td>
-            <td>
-                <select id="testcase-status">
-                    <option value="pending">Pending</option>
-                    <option value="pass" selected = "selected">Pass</option>
-                    <option value="fail">Fail</option>
-                    <option value="fixed">Fixed</option>
-                </select>
-            </td>
-            <td><input type="text" id="bug" placeholder="Enter Bug Description" /></td>
-        </tr>
-    </table>
-    <button id="submit-testcase" onClick="submitTestCases()">Submit Testcase</button>
-
-
-    <table class="table-suite-1">
-        <thead>
+    <div class="container">
+        <table class="table-css">
+            <thead>
+                <tr>
+                    <th colspan="5">Dashboard</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Percentage Pass</td>
+                    <td>Percentage Fail</td>
+                    <td>Test Coverage</td>
+                    <td>Number of Bugs Fixed</td>
+                    <td>Number of Bugs Remain</td>
+                </tr>
+                <tr>
+                    <td id="pass-percentage"></td>
+                    <td id="fail-percentage"></td>
+                    <td id="test-coverage"></td>
+                    <td id="num-bug-fixed"></td>
+                    <td id="num-bug-failed"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="button-css" onClick="dashBoard()">Update Dashboard</button>
+        <table class="input-table">
             <tr>
                 <th>Test Suite ID</th>
-                <th>Test Case ID</th>
                 <th>Test Objective</th>
-                <th>Test Step 1</th>
-                <th>Test Step 2</th>
+                <th>Test Steps</th>
+                <th>Expected Result</th>
                 <th>Status</th>
                 <th>Bug Description</th>
             </tr>
-        </thead>
-        <tbody id = "table-data-1">
-
-        </tbody>
-    </table>
-
-    <table class="table-suite-2">
-        <thead>
             <tr>
-                <th>Test Suite ID</th>
-                <th>Test Case ID</th>
-                <th>Test Objective</th>
-                <th>Test Step 1</th>
-                <th>Test Step 2</th>
-                <th>Status</th>
-                <th>Bug Description</th>
+                <td id="suiteid">
+                    <select id="suite-id">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td><textarea type="text" id="objective" placeholder="Enter Test Objective here"></textarea></td>
+                <td><textarea type="text" class="steps" id="step-1" placeholder="Enter Test Steps"></textarea></td>
+                <td><textarea type="text" class="steps" id="step-2" placeholder="Enter Expected Result"></textarea></td>
+                <td>
+                    <select id="testcase-status">
+                        <option value="pending">Pending</option>
+                        <option value="pass" selected="selected">Pass</option>
+                        <option value="fail">Fail</option>
+                        <option value="fixed">Fixed</option>
+                    </select>
+                </td>
+                <td><textarea type="text" id="bug" placeholder="Enter Bug Description"></textarea></td>
             </tr>
-        </thead>
-        <tbody id = "table-data-2">
+        </table>
+        <button class="button-css" id="submit-testcase" onClick="submitTestCases()">Submit Testcase</button>
 
-        </tbody>
-    </table>
 
-    <table class="table-suite-3">
-        <thead>
-            <tr>
-                <th>Test Suite ID</th>
-                <th>Test Case ID</th>
-                <th>Test Objective</th>
-                <th>Test Step 1</th>
-                <th>Test Step 2</th>
-                <th>Status</th>
-                <th>Bug Description</th>
-            </tr>
-        </thead>
-        <tbody id = "table-data-3">
-        </tbody>
-    </table>
+        <table class="table-suite-1">
+            <thead>
+                <tr>
+                    <th>Test Suite ID</th>
+                    <th>Test Case ID</th>
+                    <th>Test Objective</th>
+                    <th>Test Steps</th>
+                    <th>Expected Result</th>
+                    <th>Status</th>
+                    <th>Bug Description</th>
+                </tr>
+            </thead>
+            <tbody id="table-data-1">
+
+            </tbody>
+        </table>
+
+        <table class="table-suite-2">
+            <thead>
+                <tr>
+                    <th>Test Suite ID</th>
+                    <th>Test Case ID</th>
+                    <th>Test Objective</th>
+                    <th>Test Steps</th>
+                    <th>Expected Result</th>
+                    <th>Status</th>
+                    <th>Bug Description</th>
+                </tr>
+            </thead>
+            <tbody id="table-data-2">
+
+            </tbody>
+        </table>
+
+        <table class="table-suite-3">
+            <thead>
+                <tr>
+                    <th>Test Suite ID</th>
+                    <th>Test Case ID</th>
+                    <th>Test Objective</th>
+                    <th>Test Steps</th>
+                    <th>Expected Result</th>
+                    <th>Status</th>
+                    <th>Bug Description</th>
+                </tr>
+            </thead>
+            <tbody id="table-data-3">
+            </tbody>
+        </table>
+    </div>
     <script src="index.js"></script>
     <script src="dashboard.js"></script>
     <script>

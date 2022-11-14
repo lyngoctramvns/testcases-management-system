@@ -35,33 +35,18 @@ function calculationDashboard(data,filterPass,filterFail,filterPending,filterFix
 
     let bugRemain = (filterFail.length + filterFixed.length) - filterFixed.length + '/' + (filterFail.length + filterFixed.length) + ' total bugs'
 
-    localStorage.setItem('Pass', passPercentage);
-    localStorage.setItem('Fail', failPercentage);
-    localStorage.setItem('Coverage', testCoverage);
-    localStorage.setItem('Fixed', bugFixed);
-    localStorage.setItem('Remain', bugRemain);
+    let arrayResult = [passPercentage,failPercentage,testCoverage,bugFixed,bugRemain];
+
+    localStorage.setItem('dashboardResult', arrayResult);
 }
 
 function dashboardDisplay (){
     
-    let passDisplay = localStorage.getItem('Pass');
-
-    document.getElementById('pass-percentage').innerHTML = passDisplay;
-
-    let failDisplay = localStorage.getItem('Fail');
-
-    document.getElementById('fail-percentage').innerHTML = failDisplay;
-
-    let testCoverageDisplay = localStorage.getItem('Coverage');
-
-    document.getElementById('test-coverage').innerHTML = testCoverageDisplay;
-
-    let bugFixedDisplay = localStorage.getItem('Fixed');
-
-    document.getElementById('num-bug-fixed').innerHTML = bugFixedDisplay;
-
-    let bugRemainDisplay = localStorage.getItem('Remain');
-
-    document.getElementById('num-bug-failed').innerHTML = bugRemainDisplay;
+    let display = localStorage.getItem('dashboardResult').split(",");
+    document.getElementById('pass-percentage').innerHTML = display[0];
+    document.getElementById('fail-percentage').innerHTML = display[1];
+    document.getElementById('test-coverage').innerHTML = display[2];
+    document.getElementById('num-bug-fixed').innerHTML = display[3];
+    document.getElementById('num-bug-failed').innerHTML = display[4];
 
 }
